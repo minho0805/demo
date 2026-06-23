@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import FacultyCarousel from '../../components/FacultyCarousel'
 
 // Minimal starfield canvas
 function Starfield({ canvasRef }) {
@@ -106,60 +107,17 @@ export default function FutureScene() {
           transition={{ duration: 0.6 }}
           className="font-mono text-xs text-green/60 tracking-[0.3em] uppercase mb-6"
         >
-          The Future
+          Meet the Faculty
         </motion.p>
 
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-          className="font-mono font-bold text-white leading-tight mb-4"
-          style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)', letterSpacing: '-0.04em' }}
+          className="w-full max-w-3xl mx-auto"
         >
-          이 세계를<br />만드는 사람이<br />
-          <span className="text-green">되고 싶다면</span>
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="font-mono text-[#555] text-sm tracking-widest uppercase mt-6 mb-12"
-        >
-          SOFTWARE ENGINEERING @ Seokyeong University
-        </motion.p>
-
-        {/* CTA buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.7 }}
-          className="flex gap-4 justify-center flex-wrap"
-        >
-          <motion.a
-            href="#"
-            className="font-mono text-black font-bold px-8 py-4 rounded-lg text-sm"
-            style={{
-              background: '#00C853',
-              boxShadow: '0 0 30px rgba(0, 200, 83,0.4)',
-            }}
-            whileHover={{ boxShadow: '0 0 50px rgba(0, 200, 83,0.7)', scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            입학 안내 →
-          </motion.a>
-          <motion.a
-            href="#"
-            className="font-mono text-green px-8 py-4 rounded-lg text-sm"
-            style={{ border: '1px solid rgba(0, 200, 83,0.4)', background: 'rgba(0, 200, 83,0.05)' }}
-            whileHover={{ borderColor: 'rgba(0, 200, 83,0.8)', background: 'rgba(0, 200, 83,0.1)' }}
-            whileTap={{ scale: 0.97 }}
-          >
-            커리큘럼 보기
-          </motion.a>
+          <FacultyCarousel />
         </motion.div>
       </div>
 
