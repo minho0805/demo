@@ -244,7 +244,7 @@ function Laptop({ progressRef, typed, isComplete }) {
     const eEnter = easeOutCubic(enterT)
 
     const z = -9 + 9 * eEnter
-    const y = -1.7 + (-0.75 - -1.7) * eEnter
+    const y = -1.7 + (-1.15 - -1.7) * eEnter
     const scale = LAPTOP_SCALE * (0.4 + 0.6 * eEnter)
     group.position.set(0, y, z)
     group.scale.setScalar(scale)
