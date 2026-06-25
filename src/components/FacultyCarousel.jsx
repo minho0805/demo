@@ -11,13 +11,23 @@ export default function FacultyCarousel() {
   const animate = (dir) => {
     const el = stageRef.current;
     if (!el) return;
-    const fromX = dir > 0 ? 68 : -68;
+    const fromDeg = dir > 0 ? 78 : -78;
     el.animate(
       [
-        { transform: `translateX(${fromX}px)`, opacity: 0, filter: 'blur(3px)' },
-        { transform: 'translateX(0)', opacity: 1, filter: 'blur(0)' },
+        {
+          transform: `rotateY(${fromDeg}deg) translateZ(-260px) translateX(${dir > 0 ? 40 : -40}px)`,
+          opacity: 0,
+          filter: 'blur(4px) brightness(0.6)',
+        },
+        {
+          transform: `rotateY(${fromDeg * 0.35}deg) translateZ(-90px) translateX(${dir > 0 ? 12 : -12}px)`,
+          opacity: 0.7,
+          filter: 'blur(1px) brightness(0.85)',
+          offset: 0.6,
+        },
+        { transform: 'rotateY(0deg) translateZ(0) translateX(0)', opacity: 1, filter: 'blur(0) brightness(1)' },
       ],
-      { duration: DUR, easing: EASE, fill: 'both' }
+      { duration: DUR + 120, easing: EASE, fill: 'both' }
     );
   };
 
@@ -33,7 +43,7 @@ export default function FacultyCarousel() {
   const prof = faculty[idx];
 
   return (
-    <div style={{ position: 'relative', width: '100%', minHeight: 620, overflow: 'hidden' }}>
+    <div style={{ position: 'relative', width: '100%', minHeight: 620, overflow: 'hidden', perspective: 1200 }}>
       {/* PROFESSOR wordmark */}
       <div style={{
         position: 'absolute', top: 68, right: 32,
@@ -75,7 +85,7 @@ export default function FacultyCarousel() {
       </div>
 
       {/* Stage */}
-      <div ref={stageRef} style={{ position: 'absolute', inset: 0 }}>
+      <div ref={stageRef} style={{ position: 'absolute', inset: 0, transformStyle: 'preserve-3d' }}>
         {/* Portrait */}
         <img
           src={prof.img}
