@@ -454,7 +454,7 @@ export default function CodeIntroScene() {
               letterSpacing: '-0.02em',
               textShadow: `0 0 24px ${C.greenGlow}`,
               lineHeight: 1.5,
-              WebkitTextStroke: `0.6px ${C.green}`,
+              WebkitTextStroke: `1.4px ${C.green}`,
             }}
           >
             서경대학교 소프트웨어학과에<br />오신 것을 환영합니다
